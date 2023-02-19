@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://03-interior-consultant-master.vercel.app/">
+    <a href="https://notifications-page-main-blond.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/pablomalave/03.interior-consultant-master.git">
+    <a href="https://github.com/pablomalave/notifications-page-main.git">
       Solution
     </a>
     <span> | </span>
