@@ -129,11 +129,13 @@ a:hover{
 	grid-area: picture;
 	width: 3rem;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 /*Notification unread*/
 .notification--unread{
 	background-color: var(--light_grayish_blue_1);
+	cursor: pointer;
 }
 
 .notification__flag{
