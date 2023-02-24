@@ -1,6 +1,7 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">Notificarion Page</h1>
+<h1 align="center">Notification Page</h1>
+<h2 align="center">with Vue.js</h2>
 
 <div align="center">
    Solution for a challenge from  <a href="http://frontendmentor.io" target="_blank">FrontEnd Mentor</a>.
