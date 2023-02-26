@@ -10,16 +10,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="css/mainStyle.css" type="text/css" />
+  <!-- Incorporando Vue.js al proyecto -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="js/main.js" defer></script>
   	
 </head>
 <body>
-	<main class="notifications">
+	<main id="app" class="notifications">
 		<header class="notifications__header">
-			<h1 class="notifications__mainTitle">Notifications</h1> 
+			<h1 class="notifications__mainTitle">{{ title }}</h1> 
 			<span class="unread__counter">3</span>
 			<a class="markAllRead__link" href="#">Mark all as read</a>
 		</header>
+		<!-- Notification -->
+		<article class="notification notification--unread">
+			<img class="avatar" src="assets/imagesPng/avatar-rizky-hasanuddin.png" alt="User Avatar" />
+			<p class="notification__message"><strong>Rizky Hasanuddin</strong> sent you a private message <span class="notification__flag"> </span></p>
+			<p class="date">5 days ago</p>
+			<p class="notification__privateMsg">
+				Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
+				I'm already having lots of fun and improving my game.
+			</p>
+			<img class="notification__picture" src="assets/imagesPng/image-chess.png" alt="picture" />
+		</article>
 		<!-- Notification -->
 		<article class="notification notification--unread">
 			<img class="avatar" src="assets/imagesPng/avatar-mark-webber.png" alt="User Avatar" />

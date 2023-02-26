@@ -1,3 +1,24 @@
+const newMessage = {
+    avatar: 'assets/imagesPng/avatar-mark-webber.png',
+    mainMessage: '<strong>Mark Webber</strong> reacted to your recent post <a class="link" href="#">My first tournament today!</a> <span class="notification__flag"> </span>',
+    date: '1m ago',
+    status:'unread'
+};
+
+// Proyecto en VUE.JS
+const app = Vue.createApp({
+    //Root Component Options
+    data(){
+        return{
+            title: "Prueba de VUE.JS"
+        };//end return
+    }//end data
+});// end createApp
+
+app.mount('#app');
+
+
+// Proyecto Anterior en Vanilla JS
 // Mark All as Read
 const markAllReadLink = document.querySelector(".markAllRead__link");
 markAllReadLink.addEventListener("click", markAllRead);
