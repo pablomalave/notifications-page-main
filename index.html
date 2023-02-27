@@ -4,19 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <title>Frontend Mentor | Notifications page</title>
+  <title>Frontend Mentor | Notifications page with Vue.js</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="css/mainStyle.css" type="text/css" />
+  <!-- Introducir la CDN d Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="js/main.js" defer></script>
   	
 </head>
 <body>
-	<main class="notifications">
+	<main id="app" class="notifications">
 		<header class="notifications__header">
-			<h1 class="notifications__mainTitle">Notifications</h1> 
+			<h1 class="notifications__mainTitle">{{ title }}</h1> 
 			<span class="unread__counter">3</span>
 			<a class="markAllRead__link" href="#">Mark all as read</a>
 		</header>
