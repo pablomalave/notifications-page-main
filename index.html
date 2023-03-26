@@ -23,6 +23,16 @@
 			<a @click.prevent="markAllRead" class="markAllRead__link" href="#">Mark all as read</a>
 		</header>
 		<!-- Notification -->
+		<article class="notification" v-for="message in allMessages" :key="message.id" :class="{'notification--unread': message.unread }">
+			<img class="avatar" :src="message.avatar" :alt="message.id" />
+			<p class="notification__message">{{ message.mainMessage }} <span :class="{notification__flag: message.unread }"> </span></p>
+			<p class="date">{{ message.date }}</p>
+			<p class="notification__privateMsg">
+				{{ message.privateMessage}}
+			</p>
+			<img class="notification__picture" src="message.picture" alt="picture" />
+		</article>
+		<!-- Notification -->
 		<article class="notification" :class="{'notification--unread': isUnread }">
 			<img class="avatar" src="assets/imagesPng/avatar-rizky-hasanuddin.png" alt="User Avatar" />
 			<p class="notification__message"><strong>Rizky Hasanuddin</strong> sent you a private message <span :class="{notification__flag: isUnread }"> </span></p>

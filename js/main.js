@@ -1,8 +1,11 @@
 const newMessage = {
+    id: 'Pablo Malave',
     avatar: 'assets/imagesPng/avatar-mark-webber.png',
-    mainMessage: '<strong>Mark Webber</strong> reacted to your recent post <a class="link" href="#">My first tournament today!</a> <span class="notification__flag"> </span>',
+    mainMessage: '<strong>Pablo Malave</strong> reacted to your recent post <a class="link" href="#">My first tournament today!</a>',
     date: '1m ago',
-    status:'unread'
+    picture: '',
+    privateMessage: '',
+    unread: true
 };
 
 // Proyecto en VUE.JS
@@ -12,12 +15,14 @@ const app = Vue.createApp({
         return{
             title: "Prueba de VUE.JS",
             unreadCounter: null,
-            isUnread: null
+            isUnread: null,
+            messages: new Map()
         };//end return
     },//end data
     created(){
         this.unreadCounter = 4;
         this.isUnread = true;
+        this.messages.set(newMessage.id, newMessage);
     },//end created
     methods:{
         markAllRead(){
@@ -27,7 +32,12 @@ const app = Vue.createApp({
         resetCounter(){
             this.unreadCounter = 0;
         }//end resetCounter
-    }//end methods
+    },//end methods
+    computed:{
+        allMessages(){
+            return Array.from(this.messages.values());
+        }//end allMessages
+    }//end computed
 });// end createApp
 
 app.mount('#app');
