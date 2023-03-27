@@ -22,75 +22,35 @@
 			<span class="unread__counter">{{ unreadCounter }}</span>
 			<a @click.prevent="markAllRead" class="markAllRead__link" href="#">Mark all as read</a>
 		</header>
-		<!-- Notification -->
-		<article class="notification" v-for="message in allMessages" :key="message.id" :class="{'notification--unread': message.unread }">
-			<img class="avatar" :src="message.avatar" :alt="message.id" />
-			<p class="notification__message">{{ message.mainMessage }} <span :class="{notification__flag: message.unread }"> </span></p>
-			<p class="date">{{ message.date }}</p>
-			<p class="notification__privateMsg">
-				{{ message.privateMessage}}
-			</p>
-			<img class="notification__picture" src="message.picture" alt="picture" />
-		</article>
-		<!-- Notification -->
-		<article class="notification" :class="{'notification--unread': isUnread }">
-			<img class="avatar" src="assets/imagesPng/avatar-rizky-hasanuddin.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Rizky Hasanuddin</strong> sent you a private message <span :class="{notification__flag: isUnread }"> </span></p>
-			<p class="date">5 days ago</p>
-			<p class="notification__privateMsg">
-				Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
-				I'm already having lots of fun and improving my game.
-			</p>
-			<img class="notification__picture" src="assets/imagesPng/image-chess.png" alt="picture" />
-		</article>
-		<!-- Notification -->
-		<article class="notification" :class="{'notification--unread': isUnread }">
-			<img class="avatar" src="assets/imagesPng/avatar-mark-webber.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Mark Webber</strong> reacted to your recent post <a class="link" href="#">My first tournament today!</a> <span :class="{notification__flag: isUnread }"> </span></p>
-			<p class="date">1m ago</p>
-		</article>
-		<!-- Notification -->
-		<article class="notification" :class="{'notification--unread': isUnread }">
-			<img class="avatar" src="assets/imagesPng/avatar-angela-gray.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Angela Gray</strong> followed you  <span :class="{notification__flag: isUnread }"> </span>
-			<p class="date">5m ago</p>
-		</article>
-		<!-- Notification -->
-		<article class="notification" :class="{'notification--unread': isUnread }">
-			<img class="avatar" src="assets/imagesPng/avatar-jacob-thompson.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Jacob Thompson</strong> has joined your group <a class="link link__group" href="#">Chess Club</a>  <span :class="{notification__flag: isUnread }"> </span>
-			<p class="date">1 day ago</p>
-		</article>
-		<!-- Notification -->
-		<article class="notification">
-			<img class="avatar" src="assets/imagesPng/avatar-rizky-hasanuddin.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Rizky Hasanuddin</strong> sent you a private message</p>
-			<p class="date">5 days ago</p>
-			<p class="notification__privateMsg">
-				Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
-				I'm already having lots of fun and improving my game.
-			</p>
-		</article>
-		<!-- Notification -->
-		<article class="notification">
-			<img class="avatar" src="assets/imagesPng/avatar-kimberly-smith.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Kimberly Smith</strong> commented on your picture</p>
-			<p class="date">1 week ago</p>
-			<img class="notification__picture" src="assets/imagesPng/image-chess.png" alt="picture" />
-		</article>
-		<!-- Notification -->
-		<article class="notification">
-			<img class="avatar" src="assets/imagesPng/avatar-nathan-peterson.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Nathan Peterson</strong> reacted to your recent post <a class="link" href="#">5 end-game strategies to increase your win rate</a></p>
-			<p class="date">2 weeks ago</p>
-		</article>
-		<!-- Notification -->
-		<article class="notification">
-			<img class="avatar" src="assets/imagesPng/avatar-anna-kim.png" alt="User Avatar" />
-			<p class="notification__message"><strong>Anna Kim</strong> has joined your group <a class="link link__group" href="#">Chess Club</a></p>
-			<p class="date">1 day ago</p>
-		</article>
-		
+		<!-- Notification Unread-->
+		<transition-group name="list">
+			<article class="notification notification--unread"
+					 v-for="message in allUnreadMessages"
+					 :key="message.id"
+					 @click="moveToReadList(message)">
+				<img class="avatar" :src="message.avatar" :alt="message.id" />
+				<p class="notification__message"><span v-html="message.mainMessage"></span> <span :class="{notification__flag: message.unread }"> </span></p>
+				<p class="date">{{ message.date }}</p>
+				<p class="notification__privateMsg" v-if="message.privateMessage">
+					{{ message.privateMessage}}
+				</p>
+				<img class="notification__picture" v-if="message.picture" :src="message.picture" alt="picture" />
+			</article>
+		</transition-group>
+		<!-- Notification Read-->
+		<transition-group name="list">
+			<article class="notification"
+					 v-for="message in allReadMessages"
+					 :key="message.id">
+				<img class="avatar" :src="message.avatar" :alt="message.id" />
+				<p class="notification__message"><span v-html="message.mainMessage"></span></p>
+				<p class="date">{{ message.date }}</p>
+				<p class="notification__privateMsg" v-if="message.privateMessage">
+					{{ message.privateMessage}}
+				</p>
+				<img class="notification__picture" v-if="message.picture" :src="message.picture" alt="picture" />
+			</article>
+		</transition-group>
 	</main>
 	<footer class="attribution">
 		Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
