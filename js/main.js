@@ -85,7 +85,7 @@ const app = Vue.createApp({
     },//end created
     methods:{
         markAllRead(){
-            this.resetCounter();
+            this.unreadMessages.forEach(this.moveToReadList);
         },//end markAllRead
         resetCounter(){
             this.unreadCounter = 0;
