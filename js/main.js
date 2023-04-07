@@ -91,11 +91,7 @@ const app = Vue.createApp({
             this.unreadCounter = 0;
         },//end resetCounter
         moveToReadList(message){
-            console.log("Se llamó al Metodo moveToReadList");
-            console.log(message);
-            console.log(message.id);
             this.readMessages.set(message.id, message);
-            this.readCounter = this.readMessages.size;
             this.unreadMessages.delete(message.id);
             this.unreadCounter = this.unreadMessages.size;
         }
