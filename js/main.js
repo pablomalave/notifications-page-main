@@ -70,7 +70,7 @@ const app = Vue.createApp({
     //Root Component Options
     data(){
         return{
-            title: "Prueba de VUE.JS",
+            title: "Notifications",
             unreadCounter: null,
             readCounter: null,
             isUnread: null,
