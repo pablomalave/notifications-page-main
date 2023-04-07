@@ -11,7 +11,7 @@
   <h3>
     <a href="https://notifications-page-main-blond.vercel.app/">
       Demo
-    </a>https://notifications-page-main-blond.vercel.app/
+    </a>
     <span> | </span>
     <a href="https://github.com/pablomalave/notifications-page-main.git">
       Solution
